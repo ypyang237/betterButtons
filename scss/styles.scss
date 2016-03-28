@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Chewy);
+
+$primary-color : red;
+$secondary-color : yellow;
+
+
+//MIXINS
+
+$breakpoints: (
+  'medium': 600px,
+  'large':  1000px
+) !default;
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media only screen and (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+/*---
+Styles
+----*/
+
+
+body {
+  background-color: pink;
+  font-family: 'Chewy', cursive;
+
+  h1 {
+    color: purple;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+
+    @include respond-to('medium') {
+      font-size: 40px;
+    }
+
+    @include respond-to('large') {
+      font-size: 72px;
+      //media-queries things should happen before any nesting things.
+    }
+
+  }
+}
+
+#container {
+  display: flex;
+  background-color: lighten($secondary-color, 40%);
+  max-width: 100%;
+  margin: auto;
+  flex-flow: wrap;
+  justify-content: space-around;
+
+  p {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+#btnSpace {
+display: flex;
+
+  #targetBtn {
+    background-color: blue;
+    font-family: 'Pacifico', cursive;
+    font-weight: 100;
+    font-size: 30px;
+    align-items: center;
+    align-content: center;
+
+    @include respond-to('medium') {
+        font-size: 25px;
+      }
+
+      @include respond-to('large') {
+        font-size: 35px;
+        //media-queries things should happen before any nesting things.
+      }
+
+    &:hover{
+          background-color: purple;
+          color: lighten($primary-color, 40%);
+          transition: all 0.5s ease;
+          font-size: 35px;
+        }
+  }
+
+}

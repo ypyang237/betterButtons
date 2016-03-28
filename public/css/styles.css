@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Chewy);
+/*---
+Styles
+----*/
+body {
+  background-color: pink;
+  font-family: 'Chewy', cursive; }
+  body h1 {
+    color: purple;
+    font-family: 'Pacifico', cursive;
+    text-align: center; }
+    @media only screen and (min-width: 600px) {
+      body h1 {
+        font-size: 40px; } }
+    @media only screen and (min-width: 1000px) {
+      body h1 {
+        font-size: 72px; } }
+
+#container {
+  display: flex;
+  background-color: #ffffcc;
+  max-width: 100%;
+  margin: auto;
+  flex-flow: wrap;
+  justify-content: space-around; }
+  #container p {
+    flex: 1 1 auto;
+    text-align: center; }
+
+#btnSpace {
+  display: flex; }
+  #btnSpace #targetBtn {
+    background-color: blue;
+    font-family: 'Pacifico', cursive;
+    font-weight: 100;
+    font-size: 30px;
+    align-items: center;
+    align-content: center; }
+    @media only screen and (min-width: 600px) {
+      #btnSpace #targetBtn {
+        font-size: 25px; } }
+    @media only screen and (min-width: 1000px) {
+      #btnSpace #targetBtn {
+        font-size: 35px; } }
+    #btnSpace #targetBtn:hover {
+      background-color: purple;
+      color: #ffcccc;
+      transition: all 0.5s ease;
+      font-size: 35px; }
